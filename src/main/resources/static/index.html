@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2048</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #faf8ef;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .header {
+            width: 500px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 60px;
+            margin: 0;
+            color: #776e65;
+        }
+        .scores-container {
+            display: flex;
+            gap: 10px;
+        }
+        .score-box {
+            background-color: #bbada0;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .score-title {
+            font-size: 14px;
+        }
+        .score-value {
+            font-size: 22px;
+        }
+        .game-container {
+            background-color: #bbada0;
+            border-radius: 6px;
+            padding: 15px;
+            position: relative;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+            background-color: #bbada0;
+        }
+        .grid-cell {
+            width: 100px;
+            height: 100px;
+            background-color: #cdc1b4;
+            border-radius: 5px;
+        }
+        .tile {
+            width: 100px;
+            height: 100px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 35px;
+            font-weight: bold;
+            position: absolute;
+            transition: all 0.15s ease;
+        }
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        button {
+            background-color: #8f7a66;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #7d6a58;
+        }
+        .game-message {
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(238, 228, 218, 0.73);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>2048</h1>
+        <div class="scores-container">
+            <div class="score-box">
+                <div class="score-title">SCORE</div>
+                <div id="score" class="score-value">0</div>
+            </div>
+            <div class="score-box">
+                <div class="score-title">BEST</div>
+                <div id="best" class="score-value">0</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="game-container">
+        <div class="grid-container" id="grid-container"></div>
+        <div id="tiles-container"></div>
+        <div class="game-message" id="game-message">
+            <p></p>
+            <button onclick="reset()">Try again</button>
+        </div>
+    </div>
+    
+    <div class="controls">
+        <button onclick="move('UP')">↑ Up</button>
+        <button onclick="move('LEFT')">← Left</button>
+        <button onclick="move('DOWN')">↓ Down</button>
+        <button onclick="move('RIGHT')">→ Right</button>
+        <button onclick="reset()">New Game</button>
+    </div>
+
+    <script src="/js/game.js"></script>
+</body>
+</html>
