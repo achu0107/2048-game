@@ -16,6 +16,19 @@
    <properties>
        <java.version>11</java.version>
    </properties>
+	<url/>
+	<licenses>
+		<license/>
+	</licenses>
+	<developers>
+		<developer/>
+	</developers>
+	<scm>
+		<connection/>
+		<developerConnection/>
+		<tag/>
+		<url/>
+	</scm>
    <dependencies>
        <dependency>
            <groupId>org.springframework.boot</groupId>
