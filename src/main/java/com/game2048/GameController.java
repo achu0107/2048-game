@@ -30,6 +30,11 @@ public class GameController implements HealthIndicator {
     }
 
     @GetMapping("/health")
+    public Health customHealthCheck() {
+        return health();  // reuse Spring Boot's built-in health logic
+    }
+
+    @Override
     public Health health() {
         try {
             return Health.up()
@@ -41,15 +46,5 @@ public class GameController implements HealthIndicator {
                     .withDetail("error", e.getMessage())
                     .build();
         }
-    }
-
-    @Override
-    public Health getHealth(boolean includeDetails) {
-        return health();
-    }
-
-    @Override
-    public Health getHealth() {
-        return health();
     }
 }
