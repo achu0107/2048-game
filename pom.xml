@@ -9,7 +9,6 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.1.12</version> <!-- Valid version -->
-        <relativePath/> <!-- lookup parent in repository -->
     </parent>
 
     <groupId>com.game2048</groupId>
