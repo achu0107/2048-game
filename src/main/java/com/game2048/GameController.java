@@ -8,7 +8,8 @@ import java.util.HashMap;
 
 @RestController
 @RequestMapping("/api")
-public class GameController {
+public class GameController implements HealthIndicator {
+
     private Board board = new Board();
 
     @GetMapping("/board")
@@ -27,27 +28,18 @@ public class GameController {
         board = new Board();
         return board;
     }
-}
-
-@RestController
-@RequestMapping("/api")
-public class GameController implements HealthIndicator {
-    private Board board = new Board();
-
-    // ... existing endpoints ...
 
     @GetMapping("/health")
     public Health health() {
         try {
-            // Add any custom health checks here
             return Health.up()
-                .withDetail("game", "running")
-                .withDetail("boardStatus", "healthy")
-                .build();
+                    .withDetail("game", "running")
+                    .withDetail("boardStatus", "healthy")
+                    .build();
         } catch (Exception e) {
             return Health.down()
-                .withDetail("error", e.getMessage())
-                .build();
+                    .withDetail("error", e.getMessage())
+                    .build();
         }
     }
 
@@ -57,7 +49,7 @@ public class GameController implements HealthIndicator {
     }
 
     @Override
-    public Health health() {
+    public Health getHealth() {
         return health();
     }
 }
